@@ -1,11 +1,9 @@
 import './App.css';
-import { GetColorName } from 'hex-color-to-color-name';
 import { randomColor } from 'randomcolor';
 import { useState } from 'react';
 
 function App() {
   const [hexCode, setHexCode] = useState('#ff0000');
-  const [colorName, setColorName] = useState('Red');
   const [colorHue, setColorHue] = useState('random');
   const [colorLuminosity, setColorLuminosity] = useState('random');
   return (
@@ -23,7 +21,7 @@ function App() {
           color: hexCode,
         }}
       >
-        Generated color: {colorName} {} {hexCode}
+        Generated color: {hexCode}
       </div>
       <button
         onClick={() => {
@@ -32,8 +30,6 @@ function App() {
             hue: 'colorHue',
           });
           setHexCode(newHexCode);
-          const newColorName = GetColorName(newHexCode);
-          setColorName(newColorName);
         }}
       >
         Generate
@@ -57,8 +53,6 @@ function App() {
             });
             setColorHue(event.currentTarget.value);
             setHexCode(tweakedHexCode);
-            const tweakedColorName = GetColorName(tweakedHexCode);
-            setColorName(tweakedColorName);
           }}
         />
       </label>
