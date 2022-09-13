@@ -6,6 +6,8 @@ import { useState } from 'react';
 function App() {
   const [hexCode, setHexCode] = useState('#ff0000');
   const [colorName, setColorName] = useState('Red');
+  const [colorHue, setColorHue] = useState('random');
+  const [colorLuminosity, setColorLuminosity] = useState('random');
   return (
     <div>
       <h1>Random Color Generator</h1>
@@ -21,12 +23,14 @@ function App() {
           color: hexCode,
         }}
       >
-        Generated color: {colorName} {}
-        {hexCode}
+        Generated color: {colorName} {} {hexCode}
       </div>
       <button
         onClick={() => {
-          const newHexCode = randomColor();
+          const newHexCode = randomColor({
+            luminosity: 'colorLuminosity',
+            hue: 'colorHue',
+          });
           setHexCode(newHexCode);
           const newColorName = GetColorName(newHexCode);
           setColorName(newColorName);
@@ -34,6 +38,30 @@ function App() {
       >
         Generate
       </button>
+      <br />
+      <br />
+      <label>
+        hue:
+        <br />
+        <br />
+        <input
+          // 2. Use state variable (connect it to the input)
+          value={colorHue}
+          //value2={colorLuminosity}
+          // 3. Update the state variable when the user types something
+          onChange={(event) => {
+            const newHue = colorHue;
+            const tweakedHexCode = randomColor({
+              luminosity: 'colorLuminosity',
+              hue: newHue,
+            });
+            setColorHue(event.currentTarget.value);
+            setHexCode(tweakedHexCode);
+            const tweakedColorName = GetColorName(tweakedHexCode);
+            setColorName(tweakedColorName);
+          }}
+        />
+      </label>
     </div>
   );
 }
