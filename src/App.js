@@ -18,7 +18,7 @@ function App() {
           justifyContent: 'center',
           alignItems: 'center',
           fontSize: 30,
-          color: hexCode,
+          backgroundColor: hexCode,
         }}
       >
         <div>Generated Color: {hexCode} </div>
@@ -36,24 +36,26 @@ function App() {
         </button>
         <br />
         <br />
-        <label>
-          hue:
-          <br />
-          <br />
-          <input
-            // 2. Use state variable (connect it to the input)
-            value={colorHue} // {colorLuminosity}
-            // 3. Update the state variable when the user types something
-            onChange={(event) => {
-              const tweakedHexCode = randomColor({
-                // luminosity: colorLuminosity,
-                hue: colorHue,
-              });
-              setColorHue(event.currentTarget.value);
-              setHexCode(tweakedHexCode);
-            }}
-          />
-        </label>
+        <div>
+          <label>
+            hue:
+            <br />
+            <br />
+            <input
+              // 2. Use state variable (connect it to the input)
+              value={colorHue} // {colorLuminosity}
+              // 3. Update the state variable when the user types something
+              onChange={(event) => {
+                const tweakedHexCode = randomColor({
+                  // luminosity: colorLuminosity,
+                  hue: colorHue,
+                });
+                setColorHue(event.currentTarget.value);
+                setHexCode(tweakedHexCode);
+              }}
+            />
+          </label>
+        </div>
       </div>
     </div>
   );
