@@ -5,7 +5,7 @@ import { useState } from 'react';
 function App() {
   const [hexCode, setHexCode] = useState('#ff0000');
   const [colorHue, setColorHue] = useState('random');
-  //const [colorLuminosity, setColorLuminosity] = useState('random');
+  // const [colorLuminosity, setColorLuminosity] = useState('random');
   return (
     <div>
       <h1>Random Color Generator</h1>
@@ -26,7 +26,7 @@ function App() {
       <button
         onClick={() => {
           const newHexCode = randomColor({
-            //luminosity: 'colorLuminosity',
+            // luminosity: 'colorLuminosity',
             hue: 'colorHue',
           });
           setHexCode(newHexCode);
@@ -42,11 +42,11 @@ function App() {
         <br />
         <input
           // 2. Use state variable (connect it to the input)
-          value={colorHue} //{colorLuminosity}
+          value={colorHue} // {colorLuminosity}
           // 3. Update the state variable when the user types something
           onChange={(event) => {
             const tweakedHexCode = randomColor({
-              //luminosity: colorLuminosity,
+              // luminosity: colorLuminosity,
               hue: colorHue,
             });
             setColorHue(event.currentTarget.value);
