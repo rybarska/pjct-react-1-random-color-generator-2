@@ -21,7 +21,7 @@ function App() {
           color: hexCode,
         }}
       >
-        <div> Generated color: {hexCode} </div>
+        <div> Generated Color: {hexCode} </div>
 
         <button
           onClick={() => {
