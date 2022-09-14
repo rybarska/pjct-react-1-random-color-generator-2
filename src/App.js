@@ -21,41 +21,41 @@ function App() {
           backgroundColor: hexCode,
         }}
       >
-        <div>Generated Color: {hexCode}</div>
+        Generated Color: {hexCode}
+      </div>
 
-        <button
-          onClick={() => {
-            const newHexCode = randomColor({
-              // luminosity: 'colorLuminosity',
-              hue: 'colorHue',
-            });
-            setHexCode(newHexCode);
-          }}
-        >
-          Generate
-        </button>
-        <br />
-        <br />
-        <div>
-          <label>
-            hue:
-            <br />
-            <br />
-            <input
-              // 2. Use state variable (connect it to the input)
-              value={colorHue} // {colorLuminosity}
-              // 3. Update the state variable when the user types something
-              onChange={(event) => {
-                const tweakedHexCode = randomColor({
-                  // luminosity: colorLuminosity,
-                  hue: colorHue,
-                });
-                setColorHue(event.currentTarget.value);
-                setHexCode(tweakedHexCode);
-              }}
-            />
-          </label>
-        </div>
+      <button
+        onClick={() => {
+          const newHexCode = randomColor({
+            // luminosity: 'colorLuminosity',
+            hue: 'colorHue',
+          });
+          setHexCode(newHexCode);
+        }}
+      >
+        Generate
+      </button>
+      <br />
+      <br />
+      <div>
+        <label>
+          hue:
+          <br />
+          <br />
+          <input
+            // 2. Use state variable (connect it to the input)
+            value={colorHue} // {colorLuminosity}
+            // 3. Update the state variable when the user types something
+            onChange={(event) => {
+              const tweakedHexCode = randomColor({
+                // luminosity: colorLuminosity,
+                hue: colorHue,
+              });
+              setColorHue(event.currentTarget.value);
+              setHexCode(tweakedHexCode);
+            }}
+          />
+        </label>
       </div>
     </div>
   );
