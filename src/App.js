@@ -22,38 +22,39 @@ function App() {
         }}
       >
         <div>Generated color: {hexCode}</div>
-      </div>
-      <button
-        onClick={() => {
-          const newHexCode = randomColor({
-            // luminosity: 'colorLuminosity',
-            hue: 'colorHue',
-          });
-          setHexCode(newHexCode);
-        }}
-      >
-        Generate
-      </button>
-      <br />
-      <br />
-      <label>
-        hue:
-        <br />
-        <br />
-        <input
-          // 2. Use state variable (connect it to the input)
-          value={colorHue} // {colorLuminosity}
-          // 3. Update the state variable when the user types something
-          onChange={(event) => {
-            const tweakedHexCode = randomColor({
-              // luminosity: colorLuminosity,
-              hue: colorHue,
+
+        <button
+          onClick={() => {
+            const newHexCode = randomColor({
+              // luminosity: 'colorLuminosity',
+              hue: 'colorHue',
             });
-            setColorHue(event.currentTarget.value);
-            setHexCode(tweakedHexCode);
+            setHexCode(newHexCode);
           }}
-        />
-      </label>
+        >
+          Generate
+        </button>
+        <br />
+        <br />
+        <label>
+          hue:
+          <br />
+          <br />
+          <input
+            // 2. Use state variable (connect it to the input)
+            value={colorHue} // {colorLuminosity}
+            // 3. Update the state variable when the user types something
+            onChange={(event) => {
+              const tweakedHexCode = randomColor({
+                // luminosity: colorLuminosity,
+                hue: colorHue,
+              });
+              setColorHue(event.currentTarget.value);
+              setHexCode(tweakedHexCode);
+            }}
+          />
+        </label>
+      </div>
     </div>
   );
 }
